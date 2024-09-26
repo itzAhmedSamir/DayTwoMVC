@@ -1,0 +1,45 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Created On</th>
+            <th scope="col">Is Deleted</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <th scope="row">@user.Id</th>
+                <td>@user.Name</td>
+                <td>@user.Age</td>
+                <td>@user.IsCreated</td>
+                @if (@user.IsDeleted)
+                {
+                    <td>
+                        <p class="btn btn-danger"> Deleted </p>
+                    </td>
+                }
+                else
+                {
+                <td>
+                    <p class="btn btn-success"> Avaliable </p>
+                </td>
+                }
+                <td>
+                    <a asp-action="Edit" asp-controller="User" asp-route-id="@user.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-controller="User" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }        
+    </tbody>
+</table>

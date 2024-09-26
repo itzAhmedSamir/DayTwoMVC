@@ -1,0 +1,40 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card">
+  <h5 class="card-header">Edit User</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <form asp-action="Edit" asp-controller="User">
+                    <input type="hidden" asp-for="Id"/>
+                    <div class="form-group">
+                        <label for="exampleInputName">Name</label>
+                        <input type="text" asp-for="Name" class="form-control" id="exampleInputName" aria-describedby="NameHelp" placeholder="Enter Name">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" asp-for="Email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword">Password</label>
+                        <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1" aria-describedby="PasswordHelp" placeholder="Enter Password">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputAge">Age</label>
+                        <input type="text" asp-for="Age" class="form-control" id="exampleInputAge" aria-describedby="AgeHelp" placeholder="Enter Age">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                    <a asp-action="Index" asp-controller="User" class="btn btn-danger mt-4">Cancel</a>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
